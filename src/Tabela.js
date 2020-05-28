@@ -12,29 +12,33 @@ const TableHead = () => {
     );
 };
 
-const TableBody = () => {
+const TableBody = props => {
+    const linhas = props.clientes.map((cliente, index) => {
+        return (
+            <tr key = {index}>
+                <td>{cliente.nome}</td>
+                <td>{cliente.profissao}</td>
+                <td><button>Remover</button></td>
+            </tr>
+        );
+    });
+
     return (
         <tbody>
-            <tr>
-                <td>Gabriel</td>
-                <td>Programador</td>
-                <td><button>Remover</button></td>
-            </tr>
-            <tr>
-                <td>Paulo</td>
-                <td>Médico</td>
-                <td><button>Remover</button></td>
-            </tr>
+            {linhas}
         </tbody>
     );
 };
 
 class Tabela extends Component {
     render() {
+
+        const { clientes } = this.props;
+
         return (
             <table>
                 <TableHead />
-                <TableBody />
+                <TableBody clientes = { clientes } />
             </table>
         );
     }
