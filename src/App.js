@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
-import Tabela from './Tabela';
 
+import Tabela from './Tabela';
+import Form from "./Formulario";
 
 class App extends Component {
   
@@ -26,11 +27,22 @@ class App extends Component {
     ]
   };
 
+  remover = (index) => {
+    const { clientes } = this.state;
+    
+    this.setState({
+      clientes : clientes.filter((cliente, posAtual) => {
+        return posAtual !== index;
+      })
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <Tabela clientes={this.state.clientes} />
-      </div>
+      <Fragment>
+        <Tabela clientes={this.state.clientes} remover = {this.remover} />
+        <Form />
+      </Fragment>
     );
   }
 }
