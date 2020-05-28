@@ -5,19 +5,24 @@ class Formulario extends Component {
     constructor(props) {
         super(props);
         
-        this._stateInicial = {
+        this.stateInicial = {
             nome: '',
             profissao: ''
         }
 
-        this.state = this._stateInicial;
+        this.state = this.stateInicial;
     }
     
-    _inputListener = e => {
+    inputListener = e => {
         const {name, value} = e.target;
         this.setState({
             [name] : value
         });
+    };
+
+    submit = () => {
+        this.props.submitListener(this.state);
+        this.setState(this.stateInicial)
     };
 
     render() {
@@ -32,7 +37,7 @@ class Formulario extends Component {
                     type="text"
                     name="nome"
                     value={nome}
-                    onChange={this._inputListener}
+                    onChange={this.inputListener}
                     />
 
                 <label htmlFor="profissao">Profissão</label>
@@ -41,9 +46,9 @@ class Formulario extends Component {
                     type="text"
                     name="profissao"
                     value={profissao}
-                    onChange={this._inputListener}
+                    onChange={this.inputListener}
                     />
-                <button type="button">Salvar</button>
+                <button type="button" onClick={this.submit}>Salvar</button>
             </form>
         );
     }

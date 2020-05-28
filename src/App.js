@@ -37,11 +37,17 @@ class App extends Component {
     });
   }
 
+  submitListener = cliente => {
+    this.setState({
+      clientes: [...this.state.clientes, cliente]
+    })
+  };
+
   render() {
     return (
       <Fragment>
-        <Tabela clientes={this.state.clientes} remover = {this.remover} />
-        <Form />
+        <Tabela clientes = {this.state.clientes} remover = {this.remover} />
+        <Form submitListener = {this.submitListener}/>
       </Fragment>
     );
   }
