@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Delete from '@material-ui/icons/Delete';
 
 const TableHead = () => {
     return (
@@ -15,10 +16,14 @@ const TableHead = () => {
 const TableBody = props => {
     const linhas = props.clientes.map((cliente, index) => {
         return (
-            <tr key = {index}>
+            <tr key = {index} id={`c${index}`} className='scale-transition'>
                 <td>{cliente.nome}</td>
                 <td>{cliente.profissao}</td>
-                <td><button onClick = { () => {props.remover(index)} } >Remover</button></td>
+                <td><button className='waves-effect waves-light btn red darken-2'
+                        onClick = { () => {props.remover(index)} } >
+                            <Delete/>
+                    </button>
+                </td>
             </tr>
         );
     });
@@ -36,7 +41,7 @@ class Tabela extends Component {
         const { clientes, remover } = this.props;
 
         return (
-            <table>
+            <table className='highlight centered mt-20'>
                 <TableHead />
                 <TableBody clientes = { clientes } remover = { remover } />
             </table>

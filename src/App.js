@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
 import Tabela from './Tabela';
 import Form from "./Formulario";
+import Header from './Header';
 
 class App extends Component {
   
@@ -24,17 +26,36 @@ class App extends Component {
         nome: 'Matilde',
         profissao: 'Psicóloga'
       }
-    ]
+    ],
+    fadeout: {
+      classname: 'scale-transition scale-out'
+    }
   };
 
   remover = (index) => {
-    const { clientes } = this.state;
-    
-    this.setState({
-      clientes : clientes.filter((cliente, posAtual) => {
-        return posAtual !== index;
-      })
-    });
+  
+    this.fadeOutAdd(index);
+
+    setTimeout(() => {
+      this.fadeOutRemove(index);
+
+      const { clientes } = this.state;
+      this.setState({
+        clientes : clientes.filter((cliente, posAtual) => {
+          return posAtual !== index;
+        })
+      });
+    }, 135)
+  }
+
+  fadeOutAdd = (index) => {
+    document.querySelector(`#c${index}`)
+      .classList.add('scale-out');
+  }
+
+  fadeOutRemove = (index) => {
+    document.querySelector(`#c${index}`)
+      .classList.remove('scale-out');
   }
 
   submitListener = cliente => {
@@ -46,8 +67,11 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Tabela clientes = {this.state.clientes} remover = {this.remover} />
-        <Form submitListener = {this.submitListener}/>
+        <Header/>
+        <div className='container'>
+          <Tabela clientes = {this.state.clientes} remover = {this.remover} />
+          <Form submitListener = {this.submitListener}/>
+        </div>
       </Fragment>
     );
   }
