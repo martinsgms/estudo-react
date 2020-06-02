@@ -69,7 +69,7 @@ class App extends Component {
       <Fragment>
         <Header/>
         <div className='container'>
-          <h3>Meus Clientes</h3>
+          <h3>Painel Principal</h3>
           <Form submitListener = {this.submitListener}/>
           <Tabela clientes = {this.state.clientes} remover = {this.remover} />
         </div>

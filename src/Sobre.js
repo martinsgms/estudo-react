@@ -6,7 +6,9 @@ class Sobre extends Component {
         return (
             <Fragment>
                 <Header />
-                <p>SOBRE</p>
+                <div className='container'>
+                    <h3>Sobre</h3>
+                </div>
             </Fragment>
         );
     }

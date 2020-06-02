@@ -6,7 +6,9 @@ class Clientes extends Component {
         return (
             <Fragment>
                 <Header/>
-                <p>CLIENTES</p>
+                <div className='container'>
+                    <h3>Clientes</h3>
+                </div>
             </Fragment>
         );
     }

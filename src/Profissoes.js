@@ -6,7 +6,9 @@ class Profissoes extends Component {
         return (
             <Fragment>
                 <Header />
-                <p>PROFISSOES</p>
+                <div className='container'>
+                    <h3>Profissões</h3>
+                </div>
             </Fragment>
         );
     }
