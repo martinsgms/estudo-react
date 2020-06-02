@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import ClienteValidator from './ClienteValidator';
+import Toast from './Toast';
 
 class Formulario extends Component {
 
     constructor(props) {
         super(props);
+
+        this.validator = new ClienteValidator();
         
         this.stateInicial = {
             nome: '',
@@ -21,8 +25,19 @@ class Formulario extends Component {
     };
 
     submit = () => {
+
+        let errors = [];
+        errors = this.validator.validate(this.state);
+
+        if(errors.length > 0) {
+            errors.forEach(e => Toast.message('error', e));
+            return;
+        }
+
         this.props.submitListener(this.state);
         this.setState(this.stateInicial)
+
+        Toast.message('success', 'Cliente cadastrado com sucesso!')
     };
 
     render() {
@@ -30,7 +45,7 @@ class Formulario extends Component {
         const {nome, profissao} = this.state;
 
         return (
-            <div className='row mt-10'>
+            <div className='row mt-20'>
                 <form className='col s12'>
                     <div className='row'>
                         <div className='input-field col s6'>
