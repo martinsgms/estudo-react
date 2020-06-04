@@ -1,20 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import DataTable from 'react-data-table-component';
-import State from './State';
+import State from '../State';
 
-class Clientes extends Component {
+class Profissoes extends Component {
     
-    state = State.get;
+    state = State.get();
     
     render() {
         return (
             <Fragment>
-                <Header/>
+                <Header />
                 <div className='container'>
-                    <h3>Clientes</h3>
+                    <h3>Profissões</h3>
                     <DataTable
-                        columns={[{name:'nome', selector: 'nome', sortable: true}]}
+                        columns={[{name:'Profissão', selector: 'profissao', sortable: true}]}
                         data={this.state.clientes}
                     />
                 </div>
@@ -23,4 +23,4 @@ class Clientes extends Component {
     }
 }
 
-export default Clientes;
+export default Profissoes;

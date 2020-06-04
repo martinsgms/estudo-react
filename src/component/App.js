@@ -5,7 +5,7 @@ import DataTable from 'react-data-table-component';
 import './App.css';
 import Form from "./Formulario";
 import Header from './Header';
-import State from './State';
+import State from '../State';
 import styled from 'styled-components'
 
 // o styled recebe o componente e o devolve com o css que configurarmos no template string

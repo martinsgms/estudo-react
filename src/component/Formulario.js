@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClienteValidator from './ClienteValidator';
+import ClienteValidator from '../validator/ClienteValidator';
 import Toast from './Toast';
 
 class Formulario extends Component {
