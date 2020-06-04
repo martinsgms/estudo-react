@@ -34,9 +34,6 @@ class Formulario extends Component {
             return;
         }
 
-        this.props.submitListener(this.state);
-        this.setState(this.stateInicial)
-
         Toast.message('success', 'Cliente cadastrado com sucesso!')
     };
 
