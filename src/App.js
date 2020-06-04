@@ -1,77 +1,90 @@
 import React, { Component, Fragment } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
+import Delete from '@material-ui/icons/Delete';
+import DataTable from 'react-data-table-component';
 import './App.css';
-
-import Tabela from './Tabela';
 import Form from "./Formulario";
 import Header from './Header';
+import State from './State';
+import styled from 'styled-components'
+
+// o styled recebe o componente e o devolve com o css que configurarmos no template string
+// o componente pode ter classes default que podemos modificar, é o caso abaixo
+
+const TableWrapper = styled(DataTable)`
+  .rdt_TableRow {
+    color: red
+  }
+`;
 
 class App extends Component {
   
-  state = {
-    clientes: [
-      {
-        nome: 'Juliana',
-        profissao: 'Dentista'
-      },
-      {
-        nome: 'Kleber',
-        profissao: 'Caminhoneiro'
-      },
-      {
-        nome: 'César',
-        profissao: 'Jornalista'
-      },
-      {
-        nome: 'Matilde',
-        profissao: 'Psicóloga'
-      }
-    ],
-    fadeout: {
-      classname: 'scale-transition scale-out'
-    }
-  };
+  state = State.get;
 
-  remover = (index) => {
-  
-    this.fadeOutAdd(index);
+  columns = [
+    {name:'Nome', selector: 'nome', sortable: true},
+    {name:'Profissão', selector: 'profissao', sortable: true},
+    {
+      name:'Ações',
+      cell: row => 
+        <button 
+          className='waves-effect waves-light btn red darken-2'
+          onClick={() => {this.remover(row.id)}}>
+            <Delete />
+        </button>
+    }
+  ];
+
+  remover = (id) => {
+    this.fadeOutAdd(id);
 
     setTimeout(() => {
-      this.fadeOutRemove(index);
+      this.fadeOutRemove(id);
 
       const { clientes } = this.state;
       this.setState({
-        clientes : clientes.filter((cliente, posAtual) => {
-          return posAtual !== index;
+        clientes : clientes.filter((cliente) => {
+          return cliente.id !== id;
         })
       });
     }, 135)
   }
 
-  fadeOutAdd = (index) => {
-    document.querySelector(`#c${index}`)
+  fadeOutAdd = (id) => {
+    document.querySelector(`#row-${id}`)
       .classList.add('scale-out');
   }
 
-  fadeOutRemove = (index) => {
-    document.querySelector(`#c${index}`)
+  fadeOutRemove = (id) => {
+    document.querySelector(`#row-${id}`)
       .classList.remove('scale-out');
   }
 
   submitListener = cliente => {
-    this.setState({
+    this.state.set({
       clientes: [...this.state.clientes, cliente]
     })
   };
 
+  
   render() {
+    console.log(this.state);
+
     return (
       <Fragment>
         <Header/>
         <div className='container'>
           <h3>Painel Principal</h3>
           <Form submitListener = {this.submitListener}/>
-          <Tabela clientes = {this.state.clientes} remover = {this.remover} />
+        
+        
+          <TableWrapper
+            className='highlight centered mt-20'
+            columns={this.columns}
+            data={this.state.clientes}
+            />
+        
+
         </div>
       </Fragment>
     );
