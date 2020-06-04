@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import '../../style/App.css';
-import Form from "../Formulario";
-import Header from '../Header';
+import './style/index.css';
+import Form from "./Formulario";
+import Header from '../../Header';
 
 import { useSelector } from 'react-redux';
 
-const App = () => {
+const Home = () => {
   const clientes = useSelector(state => state.data);
 
   return (
-    <Fragment>
+    <>
       <Header/>
       <div className='container'>
-        <h3>Painel Principal</h3>
+        <h3>Home</h3>
         <Form/>
 
         <ul>
@@ -21,8 +21,8 @@ const App = () => {
         </ul>
 
       </div>
-    </Fragment>
+    </>
   );
 }
 
-export default App;
+export default Home;
