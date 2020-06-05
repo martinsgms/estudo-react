@@ -1,5 +1,5 @@
 import React from 'react';
-import Link  from '../component/LinkWraper';
+import Link  from '../LinkWraper';
 import './style/index.css';
 
 const Header = () => {

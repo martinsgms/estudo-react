@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const INIT_STATE = {
-    data: [
+    clientes: [
         {
             id: 1,
             nome: 'Juliana',
@@ -18,7 +18,7 @@ const INIT_STATE = {
 function cliente(state = INIT_STATE, action) {
     switch (action.type) {
         case 'ADD_CLIENTE':
-            return { ...state, data: [ ...state, action.cliente ] };
+            return { ...state, clientes: [ ...state, action.cliente ] };
         default:
             return state;
     }

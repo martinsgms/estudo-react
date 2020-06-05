@@ -9,10 +9,12 @@ import Sobre  from './component/view/Sobre';
 import './style/index.css';
 import { Provider } from 'react-redux';
 import store from './store';
+import Header from './component/Header';
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+    <Header />
       <Switch>
         <Route path='/' exact={true} component={Home} />
         <Route path='/clientes' component={Clientes} />
