@@ -1,0 +1,9 @@
+tbody > tr:hover {
+    background-color: rgb(51, 51, 51);
+}
+
+@media only screen and (min-width: 992px) {
+    .lm {
+        margin-left: 10px;
+    }
+}

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const LinkWraper = props => {
     return (
-        <NavLink activeStyle={{backgroundColor: '#0277bd'}} {...props} />
+        <NavLink activeStyle={{backgroundColor: '#3e2390'}} {...props} />
     );
 }
 

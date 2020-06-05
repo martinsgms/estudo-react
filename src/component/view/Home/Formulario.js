@@ -72,7 +72,7 @@ class Formulario extends Component {
                     <button
                         type="button"
                         onClick={this.submit}
-                        className='waves-effect waves-light btn light-blue darken-2'>
+                        className='waves-effect waves-light btn deep-purple darken-3'>
                         Salvar
                     </button>
                 </form>
