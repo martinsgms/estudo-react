@@ -14,7 +14,10 @@ const Input = ({ name, ...props }) => {
     }, [fieldName, inputRef]);
 
     return (
-        <input ref={inputRef} {...props} />
+        <>
+            <input className='validate' ref={inputRef} {...props} />
+            {error && <span className="error" style={{color: '#f00'}} >{error}</span>}
+        </>
     );
 }
 
