@@ -18,7 +18,7 @@ const INIT_STATE = {
 function cliente(state = INIT_STATE, action) {
     switch (action.type) {
         case 'ADD_CLIENTE':
-            return { ...state, clientes: [ ...state, action.cliente ] };
+            return { ...state.clientes, clientes: [ ...state.clientes, action.cliente ] };
         default:
             return state;
     }
