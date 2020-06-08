@@ -11,15 +11,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Header from './component/Header';
 
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
     <Header />
       <Switch>
-        <Route path='/' exact={true} component={Home} />
-        <Route path='/clientes' component={Clientes} />
-        <Route path='/profissoes' component={Profissoes} />
-        <Route path='/sobre' component={Sobre} />
+        <Route path='/estudo-react' exact={true} component={Home} />
+        <Route path='/estudo-react/clientes' component={Clientes} />
+        <Route path='/estudo-react/profissoes' component={Profissoes} />
+        <Route path='/estudo-react/sobre' component={Sobre} />
       </Switch>
     </BrowserRouter>
   </Provider>,
