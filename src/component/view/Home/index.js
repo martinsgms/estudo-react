@@ -2,7 +2,7 @@ import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import './style/index.css';
 import Table from "./Table";
-import FormCliente from './FormCliente';
+import FormCliente from './Form/';
 
 
 const Home = () => {

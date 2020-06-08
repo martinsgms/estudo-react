@@ -18,7 +18,10 @@ const INIT_STATE = {
 function cliente(state = INIT_STATE, action) {
     switch (action.type) {
         case 'ADD_CLIENTE':
-            return { ...state.clientes, clientes: [ ...state.clientes, action.cliente ] };
+            return { ...state, clientes: [ ...state.clientes, action.cliente ] };
+        case 'RMV_CLIENTE':
+            return { ...state, clientes: state.clientes.filter(c => c !== action.cliente) };
+
         default:
             return state;
     }

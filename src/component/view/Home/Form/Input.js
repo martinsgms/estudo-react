@@ -3,7 +3,7 @@ import { useField } from "@unform/core";
 
 const Input = ({ name, ...props }) => {
     const inputRef = useRef(null);
-    const { fieldName, registerField, defaultValue, error } = useField(name);
+    const { fieldName, registerField, error } = useField(name);
 
     useEffect(() => {
         registerField({
@@ -11,7 +11,7 @@ const Input = ({ name, ...props }) => {
             ref: inputRef.current,
             path: 'value'
         })
-    }, [fieldName, inputRef]);
+    }, [fieldName, inputRef, registerField]);
 
     return (
         <>

@@ -1,7 +1,8 @@
 import React from 'react';
 import Delete from '@material-ui/icons/Delete';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './style/index.css';
+import Toast from '../../Toast';
 
 const Table = () => {
     return (
@@ -26,12 +27,21 @@ const TableHead = () => {
 
 const TableBodyData = () => {
     
-    return useSelector(state => state.clientes).map(c => {
+    const dispatch = useDispatch();
+    const stateClientes = useSelector(state => state.clientes);
+
+    const handleDelete = cliente => {
+        dispatch({type: 'RMV_CLIENTE', cliente: cliente});
+        Toast.message('success', 'Removido com sucesso!');
+    }
+
+    return stateClientes.map(c => {
         return (
-            <tr key = {c.id} id={`c${c.id}`} className='scale-transition'>
+            <tr key = {c.id}>
                 <td>{c.nome}</td>
                 <td>{c.profissao}</td>
-                <td><button className='waves-effect waves-light btn red darken-2'>
+                <td><button className='waves-effect waves-light btn red darken-2'
+                        onClick={() => handleDelete(c)}>
                         <Delete/>
                     </button>
                 </td>
@@ -39,5 +49,6 @@ const TableBodyData = () => {
         );
     });
 };
+
 
 export default Table;

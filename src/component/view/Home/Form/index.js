@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import Input from './Form/Input';
+import Input from './Input';
 import { useDispatch } from 'react-redux';
-import Toast from '../../Toast';
+import Toast from '../../../Toast';
 import * as Yup from 'yup';
 import { Form } from '@unform/web'
 
