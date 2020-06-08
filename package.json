@@ -1,4 +1,5 @@
 {
+  "homepage": "https://martinsgms.github.io/estudo-react/",
   "name": "react-cliente",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +12,7 @@
     "@unform/core": "^2.1.0",
     "@unform/web": "^2.1.0",
     "eslint": "^7.2.0",
+    "gh-pages": "^3.0.0",
     "materialize-css": "^1.0.0",
     "react": "^16.13.1",
     "react-data-table-component": "^6.9.3",
