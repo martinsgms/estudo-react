@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/estudo-react/static/css/main.ccbf82b9.chunk.css",
+    "main.js": "/estudo-react/static/js/main.55a42381.chunk.js",
+    "main.js.map": "/estudo-react/static/js/main.55a42381.chunk.js.map",
+    "runtime-main.js": "/estudo-react/static/js/runtime-main.551ca6c9.js",
+    "runtime-main.js.map": "/estudo-react/static/js/runtime-main.551ca6c9.js.map",
+    "static/css/2.36020323.chunk.css": "/estudo-react/static/css/2.36020323.chunk.css",
+    "static/js/2.4d5b61b5.chunk.js": "/estudo-react/static/js/2.4d5b61b5.chunk.js",
+    "static/js/2.4d5b61b5.chunk.js.map": "/estudo-react/static/js/2.4d5b61b5.chunk.js.map",
+    "index.html": "/estudo-react/index.html",
+    "precache-manifest.35f20a6375832da55a3685eee3b91134.js": "/estudo-react/precache-manifest.35f20a6375832da55a3685eee3b91134.js",
+    "service-worker.js": "/estudo-react/service-worker.js",
+    "static/css/2.36020323.chunk.css.map": "/estudo-react/static/css/2.36020323.chunk.css.map",
+    "static/css/main.ccbf82b9.chunk.css.map": "/estudo-react/static/css/main.ccbf82b9.chunk.css.map",
+    "static/js/2.4d5b61b5.chunk.js.LICENSE.txt": "/estudo-react/static/js/2.4d5b61b5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.551ca6c9.js",
+    "static/css/2.36020323.chunk.css",
+    "static/js/2.4d5b61b5.chunk.js",
+    "static/css/main.ccbf82b9.chunk.css",
+    "static/js/main.55a42381.chunk.js"
+  ]
+}
